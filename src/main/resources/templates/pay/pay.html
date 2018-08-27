@@ -1,0 +1,42 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="layout :: htmlhead" th:with="title='favorites'"></head>
+<body>
+<section>
+    <div class="content-wrapper">
+        <h3>支付确认</h3>
+        <div class="row">
+            <div class="col-md-3 col-md-offset-1">
+                <form id="form" data-parsley-validate="true" onsubmit="return false">
+                    <div class="form-group">
+                        <input id="name" type="text" class="form-control" placeholder="支付方式" data-parsley-error-message="请输入支付方式" required="required"/>
+                    </div>
+                    <button id="pcPay" class="btn btn-block btn-primary mt-lg">确认支付</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+    $(function () {
+        $("#pcPay").click(function () {
+            var ok = $('#form').parsley().isValid({force: true});
+            if (ok) {
+                $.ajax({
+                    async:false,
+                    url:"/pcPay",
+                    error:function (XMLHttpRequest,textStatus,errorThrown) {
+                        console.log(XMLHttpRequest);
+                        console.log(textStatus);
+                        console.log(errorThrown);
+                    },
+                    success:function (data) {
+
+                    }
+                });
+            }
+        });
+    });
+
+</script>
+</body>
+</html>

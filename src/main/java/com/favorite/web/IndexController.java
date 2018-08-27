@@ -83,7 +83,7 @@ public class IndexController extends BaseController {
         model.addAttribute("newCommentMeCount",noticeRepository.countByUserIdAndTypeAndReaded(getUserId(), "comment", "unread"));
         model.addAttribute("newPraiseMeCount",noticeRepository.countPraiseByUserIdAndReaded(getUserId(), "unread"));
         logger.info("collect size="+size+" userID="+getUserId());
-        return "home";//git提交测试
+        return "home";
     }
 
     @RequestMapping(value="/import")

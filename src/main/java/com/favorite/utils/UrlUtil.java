@@ -8,6 +8,7 @@ import java.net.URL;
 
 /**
  * Created by cdc on 2018/8/17.
+ * param:
  */
 public class UrlUtil {
 

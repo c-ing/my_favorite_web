@@ -40,6 +40,7 @@ public class UserController extends BaseController{
     @LoggerManager(description = "登录")
     public ResponseData login(User user, HttpServletResponse response) {
         try {
+            System.out.println("=============================" + user.toString());
             User loginUser = userRepository.findByUserNameOrEmail(user.getUserName(), user.getEmail());
             if (loginUser == null) {
                 return new ResponseData(ExceptionMsg.LoginNameNotExists);
